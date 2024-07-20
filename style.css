@@ -1,39 +1,64 @@
-* {
+body {
     margin: 0;
 }
-html,body {
-    height: 100%;
-    font-size: 14px;
-}
-
-.swiper {
-    width: 1000px;
-    height: 100%;
-}
-
-.swiper-slide {
-    justify-content: center;
+.slider {
+    user-select: none;
+    margin: auto;
+    justify-content: center; 
     align-items: center;
-    text-align: center;
-    font-size: 18px;
-    background-color: rgb(67, 52, 67);
-    display: flex;
-}
-.swiper-slide img {
-    padding-top: 110px;
-    width: 80%;
-    object-fit: cover;
-    user-select: none
+    width: 900px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    background-color: blueviolet;
 }
 
-.swiper-button-next, .swiper-rtl .swiper-button-prev {
-    right: 140px !important;
-    left: auto;
-    user-select: none
+.slider-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .9s ease;
+    background-color: blueviolet;
 }
 
-.swiper-button-prev, .swiper-rtl .swiper-button-next {
-    left: 140px !important;
-    right: auto;
-    user-select: none
+.slider-img.active {
+    opacity: 1;
+}
+
+.slider img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.slider .prev {
+    left: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.slider .next {
+    right: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.controlls {
+    opacity: 1;
+    height: 40px;
+}
+
+.bagColor {
+    margin: auto;
+    justify-content: center; 
+    background-color: black;
+    width: 1200px;
+    height:750px; 
+}
+
+.a {
+    text-decoration:none;
 }
