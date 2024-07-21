@@ -36,5 +36,5 @@ function prevSlider() {
 
 
 function rollSlider() {
-    sliderLine.style.transform = `translateX(${-sliderCount * 1000}px)`
+    sliderLine.style.transform = `translateX(${-sliderCount * sliderWidth}px)`
 }
