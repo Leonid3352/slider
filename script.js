@@ -1,31 +1,40 @@
-const images = document.querySelectorAll('.slider-img');
-const controlls = document.querySelectorAll('.controlls');
-let imagesIndex = 0;
+const slider = document.querySelector('.slider');
+const sliderImages = document.querySelectorAll('.slider-img');
+const sliderLine = document.querySelector('.slider__line');
+const sliderBtnNext = document.querySelector('.next');
+const sliderBtnPrev = document.querySelector('.prev');
 
-function show(index) {
-    images[imagesIndex].classList.remove('active');
-    images[index].classList.add('active')
-    imagesIndex = index
+let sliderCount = 0;
+let sliderWidth = slider.offsetWidth;
+
+sliderBtnNext.addEventListener('click', nextSlider);
+
+sliderBtnPrev.addEventListener('click', prevSlider);
+
+
+
+function nextSlider() {
+    sliderCount++;
+    if (sliderCount >= sliderImages.length) {
+        sliderCount = 0
+    }
+
+
+    rollSlider()
 }
 
-controlls.forEach((e) => {
-    e.addEventListener('click', () =>{
-        if (event.target.classList.contains('prev')) {
-            let index = imagesIndex - 1;
+function prevSlider() {
+    sliderCount--;
+    if (sliderCount < 0) {
+        sliderCount = sliderImages.length -1;
+    }
 
-            if (index < 0) {
-                index = images.length - 1;
-            }
-            show(index);
-            
-        } else if (event.target.classList.contains('next')) {
-            let index = imagesIndex + 1;
-            if (index >= images.length) {
-                index = 0;
-            }
-            show(index)
-        }   
-    })
-})
 
-show(imagesIndex)
+
+    rollSlider()
+}
+
+
+function rollSlider() {
+    sliderLine.style.transform = `translateX(${-sliderCount * 1000}px)`
+}
